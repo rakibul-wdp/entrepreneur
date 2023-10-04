@@ -4,20 +4,32 @@ using namespace std;
 
 int main()
 {
-   int n, Petya, Vasya, Tonya, number(0);
+   int n, k;
+   cin >> n >> k;
 
-   cin >> n;
-
-   while (n--)
+   int a;
+   for (int i = 0; i < k; ++i)
    {
-      cin >> Petya >> Vasya >> Tonya;
-      if (Petya + Vasya + Tonya >= 2)
+      cin >> a;
+      if (a == 0)
       {
-         number += 1;
+         cout << i << endl;
+         return 0;
       }
    }
 
-   cout << number << endl;
+   int b;
+   for (int i = k; i < n; ++i)
+   {
+      cin >> b;
+      if (b != a)
+      {
+         cout << i << endl;
+         return 0;
+      }
+   }
+
+   cout << n << endl;
 
    return 0;
 }
