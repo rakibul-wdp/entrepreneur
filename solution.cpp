@@ -1,35 +1,29 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
 int main()
 {
-   int n, k;
-   cin >> n >> k;
+   int a, x = 0;
+   string s;
 
-   int a;
-   for (int i = 0; i < k; ++i)
+   cin >> a;
+
+   for (int i = 0; i < a; i++)
    {
-      cin >> a;
-      if (a == 0)
+      cin >> s;
+      if (s[1] == '+')
       {
-         cout << i << endl;
-         return 0;
+         x++;
+      }
+      else
+      {
+         x--;
       }
    }
 
-   int b;
-   for (int i = k; i < n; ++i)
-   {
-      cin >> b;
-      if (b != a)
-      {
-         cout << i << endl;
-         return 0;
-      }
-   }
-
-   cout << n << endl;
+   cout << x;
 
    return 0;
 }
