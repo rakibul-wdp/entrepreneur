@@ -1,29 +1,16 @@
 #include <iostream>
-#include <string>
-
 using namespace std;
 
 int main()
 {
-   int a, x = 0;
-   string s;
+   int w;
 
-   cin >> a;
+   cin >> w;
 
-   for (int i = 0; i < a; i++)
-   {
-      cin >> s;
-      if (s[1] == '+')
-      {
-         x++;
-      }
-      else
-      {
-         x--;
-      }
-   }
-
-   cout << x;
+   if (w % 2 == 0 && w > 2)
+      cout << "Yes";
+   else
+      cout << "No";
 
    return 0;
 }
