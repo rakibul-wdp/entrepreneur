@@ -5,14 +5,7 @@ int main() {
   int w;
 
   cin >> w;
-  if (w % 2 == 0 && w != 2)
-  {
-    cout << "Yes";
-  }
-  else
-  {
-    cout << "No";
-  }
+  cout << ((w / 2) % 2 == 0 ? "Yes" : "No");
 
   return 0;
 }
