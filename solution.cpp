@@ -1,13 +1,17 @@
 #include <iostream>
+#include <cctype>
 using namespace std;
 
 int main()
 {
-   int A, B;
+   char x;
 
-   cin >> A >> B;
+   cin >> x;
 
-   A % B == 0 || B % A == 0 ? cout << "Multiples" : cout << "No Multiples";
+   if (isupper(x))
+      cout << char(tolower(x));
+   else
+      cout << char(toupper(x));
 
    return 0;
 }
