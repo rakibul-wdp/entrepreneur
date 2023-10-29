@@ -8,10 +8,15 @@ int main()
 
    cin >> x;
 
-   if (isupper(x))
-      cout << char(tolower(x));
+   if (isalpha(x))
+   {
+      if (isupper(x))
+         cout << "ALPHA\nIS CAPITAL";
+      else
+         cout << "ALPHA\nIS SMALL";
+   }
    else
-      cout << char(toupper(x));
+      cout << "IS DIGIT";
 
    return 0;
 }
