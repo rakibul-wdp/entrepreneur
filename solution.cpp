@@ -6,7 +6,8 @@ int main()
    int A, B;
 
    cin >> A >> B;
-   A >= B ? cout << "Yes" : cout << "No";
+
+   A % B == 0 || B % A == 0 ? cout << "Multiples" : cout << "No Multiples";
 
    return 0;
 }
