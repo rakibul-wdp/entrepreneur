@@ -4,19 +4,25 @@ using namespace std;
 
 int main()
 {
-   char x;
+   int A, B, C, max, min;
 
-   cin >> x;
+   cin >> A >> B >> C;
 
-   if (isalpha(x))
-   {
-      if (isupper(x))
-         cout << "ALPHA\nIS CAPITAL";
-      else
-         cout << "ALPHA\nIS SMALL";
-   }
-   else
-      cout << "IS DIGIT";
+   max = A;
+
+   if (B > max)
+      max = B;
+   if (C > max)
+      max = C;
+
+   min = A;
+
+   if (B < min)
+      min = B;
+   if (C < min)
+      min = C;
+
+   cout << min << " " << max;
 
    return 0;
 }
