@@ -3,18 +3,13 @@ using namespace std;
 
 int main()
 {
-   int a;
-   long long b;
-   char c;
-   float d;
-   double e;
+   long long a, b;
 
-   cin >> a >> b >> c >> d >> e;
-   cout << a << "\n"
-        << b << "\n"
-        << c << "\n"
-        << d << "\n"
-        << e << "\n";
+   cin >> a >> b;
+
+   cout << a << " + " << b << " = " << a + b << "\n";
+   cout << a << " * " << b << " = " << a * b << "\n";
+   cout << a << " - " << b << " = " << a - b << "\n";
 
    return 0;
 }
