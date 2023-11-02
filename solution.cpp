@@ -4,12 +4,10 @@ using namespace std;
 
 int main()
 {
-   float a, b;
+   int a, b, c, d;
 
-   cin >> a >> b;
-   cout << "floor " << a << " / " << b << " = " << floor(a / b) << "\n";
-   cout << "ceil " << a << " / " << b << " = " << ceil(a / b) << "\n";
-   cout << "round " << a << " / " << b << " = " << round(a / b) << "\n";
+   cin >> a >> b >> c >> d;
+   pow(a, b) > pow(c, d) ? cout << "Yes\n" : cout << "No\n";
 
    return 0;
 }
