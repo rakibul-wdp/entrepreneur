@@ -1,16 +1,18 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
 
 int main()
 {
-   long long a, b, c, d;
+   int a, b, c, d, times;
 
    cin >> a >> b >> c >> d;
-   if (b * log(a) > d * log(c))
-      cout << "YES";
-   else
-      cout << "NO";
+   a %= 100; // a = a % 100;
+   b %= 100;
+   c %= 100;
+   d %= 100;
+   times = a * b * c * d;
+   times % 100 <= 9 && cout << 0;
+   cout << times % 100;
 
    return 0;
 }
