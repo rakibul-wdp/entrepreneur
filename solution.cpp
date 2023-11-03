@@ -1,23 +1,16 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 int main()
 {
-   int a, b, c, d;
-   char s, q;
+   long long a, b, c, d;
 
-   cin >> a >> s >> b >> q >> c;
-   if (s == '+')
-      d = a + b;
-   else if (s == '-')
-      d = a - b;
+   cin >> a >> b >> c >> d;
+   if (b * log(a) > d * log(c))
+      cout << "YES";
    else
-      d = a * b;
-
-   if (d == c)
-      cout << "Yes\n";
-   else
-      cout << d;
+      cout << "NO";
 
    return 0;
 }
