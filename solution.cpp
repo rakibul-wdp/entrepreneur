@@ -3,18 +3,19 @@ using namespace std;
 
 int main()
 {
-   int a, b, c;
+   int a, b;
    char s;
 
    cin >> a >> s >> b;
-   if (s == '>')
-      c = a > b;
-   else if (s == '<')
-      c = a < b;
-   else
-      c = a == b;
 
-   c ? cout << "Right\n" : cout << "Wrong\n";
+   if (s == '+')
+      cout << a + b;
+   else if (s == '-')
+      cout << a - b;
+   else if (s == '*')
+      cout << a * b;
+   else
+      cout << a / b;
 
    return 0;
 }
