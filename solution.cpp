@@ -3,16 +3,18 @@ using namespace std;
 
 int main()
 {
-   int a, b, c, d, times;
+   int a, b, c;
+   char s;
 
-   cin >> a >> b >> c >> d;
-   a %= 100; // a = a % 100;
-   b %= 100;
-   c %= 100;
-   d %= 100;
-   times = a * b * c * d;
-   times % 100 <= 9 && cout << 0;
-   cout << times % 100;
+   cin >> a >> s >> b;
+   if (s == '>')
+      c = a > b;
+   else if (s == '<')
+      c = a < b;
+   else
+      c = a == b;
+
+   c ? cout << "Right\n" : cout << "Wrong\n";
 
    return 0;
 }
