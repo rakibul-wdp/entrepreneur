@@ -1,27 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-long long sum = 0;
-void fun(int arr[], int n, int i)
-{
-  if (i == n)
-    return;
-
-  sum += arr[i];
-
-  fun(arr, n, i + 1);
-}
-
 int main()
 {
   int n;
   cin >> n;
-  int arr[n];
-  for (int i = 0; i < n; i++)
-    cin >> arr[i];
+  int row = n, col = n;
+  long long arr[row][col];
+  for (int i = 0; i < row; i++)
+  {
+    for (int j = 0; j < col; j++)
+      cin >> arr[i][j];
+  }
 
-  fun(arr, n, 0);
-  cout << sum;
+  long long sum_primary = 0, sum_secondary = 0;
+  for (int i = 0; i < row; i++)
+  {
+    for (int j = 0; j < col; j++)
+    {
+      if (i == j)
+        sum_primary += arr[i][j];
+      if (i + j == row - 1)
+        sum_secondary += arr[i][j];
+    }
+  }
+
+  cout << abs(sum_primary - sum_secondary);
 
   return 0;
 }
