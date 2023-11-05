@@ -5,7 +5,7 @@ int main()
 {
   int row, col;
   cin >> row >> col;
-  int arr[row][col], arr2[row][col];
+  int arr[row][col], arr2[row][col], arr3[row][col];
   for (int i = 0; i < row; i++)
   {
     for (int j = 0; j < col; j++)
@@ -22,7 +22,15 @@ int main()
   {
     for (int j = 0; j < col; j++)
     {
-      cout << arr[i][j] + arr2[i][j] << " ";
+      arr3[i][j] = arr[i][j] + arr2[i][j];
+    }
+  }
+
+  for (int i = 0; i < row; i++)
+  {
+    for (int j = 0; j < col; j++)
+    {
+      cout << arr3[i][j] << " ";
     }
     cout << endl;
   }
