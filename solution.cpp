@@ -6,28 +6,21 @@ int main()
    int n;
 
    cin >> n;
-   int even = 0, odd = 0, pos = 0, neg = 0;
+
+   int big = 0;
 
    for (int i = 1; i <= n; i++)
    {
-      int a;
-      cin >> a;
+      int b;
+      cin >> b;
 
-      if (a % 2 == 0)
-         even++;
-      else
-         odd++;
+      if (i == 1)
+         big = b;
 
-      if (a > 0)
-         pos++;
-      else if (a < 0)
-         neg++;
+      if (b > big)
+         big = b;
    }
-
-   cout << "Even: " << even << endl
-        << "Odd: " << odd << endl
-        << "Positive: " << pos << endl
-        << "Negative: " << neg << endl;
+   cout << big << endl;
 
    return 0;
 }
