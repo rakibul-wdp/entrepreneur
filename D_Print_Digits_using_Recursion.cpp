@@ -3,12 +3,12 @@ using namespace std;
 
 void fun(int x)
 {
-  // if (x == 0)
-  //   return;
+  if (x == 0)
+    return;
 
-  cout << x << endl;
-
-  // fun(x - 1);
+  int n = x % 10;
+  fun(x / 10);
+  cout << n << " ";
 }
 
 int main()
@@ -21,6 +21,10 @@ int main()
     cin >> x;
 
     fun(x);
+    if (x == 0)
+      cout << "0";
+
+    cout << endl;
   }
 
   return 0;
