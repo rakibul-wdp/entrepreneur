@@ -4,21 +4,15 @@ using namespace std;
 int main()
 {
    int n;
-
    cin >> n;
 
-   for (int i = 1; i <= n; i++)
-   {
-      string number;
-      cin >> number;
-      int size = number.size();
+   int p = n / 365;
+   int q = (n % 365) / 30;
+   int r = (n % 365) % 30;
 
-      for (int z = size - 1; z >= 0; z--)
-      {
-         cout << number[z] << " ";
-      }
-      cout << endl;
-   }
+   cout << p << " years" << endl
+        << q << " months" << endl
+        << r << " days";
 
    return 0;
 }
