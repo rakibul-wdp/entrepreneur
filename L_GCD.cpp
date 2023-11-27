@@ -8,22 +8,29 @@ int main()
 
   if (a > b)
   {
-    int res = b / 2;
-    for (int i = 1; i <= res; i++)
+    int minimum = INT_MIN;
+    for (int i = 1; i <= b; i++)
     {
-      if (a / i == 0)
-        cout << i << endl;
+      if (a % i == 0 && b % i == 0)
+      {
+        if (i > minimum)
+          minimum = i;
+      }
     }
+    cout << minimum << endl;
   }
   else
   {
-    int res = a / 2;
-    for (int i = 1; i <= res; i++)
+    int minimum = INT_MIN;
+    for (int i = 1; i <= a; i++)
     {
-      cout << i << endl;
-      if (b / i == 0)
-        cout << i << endl;
+      if (b % i == 0 && a % i == 0)
+      {
+        if (i > minimum)
+          minimum = i;
+      }
     }
+    cout << minimum << endl;
   }
 
   return 0;
