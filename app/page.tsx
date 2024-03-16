@@ -28,6 +28,7 @@
 
 "use client";
 
+import { Courses } from "@/components/Courses";
 import { EntrepreneursCapital } from "@/components/EntrepreneursCapital";
 import { Form } from "@/components/Form";
 import { Products } from "@/components/Products";
@@ -36,7 +37,7 @@ import { useState } from "react";
 export default function Home() {
   const [entrepreneurs, setEntrepreneur] = useState<any>([]);
   const [products, setProduct] = useState<any>([]);
-  const [course, setCourse] = useState({});
+  const [courses, setCourse] = useState<any>([]);
 
   const handleEntrepreneur = (e: any) => {
     e.preventDefault();
@@ -66,10 +67,13 @@ export default function Home() {
 
   const handleCourse = (e: any) => {
     e.preventDefault();
-    setCourse({
+
+    const newCourse = {
       courseName: e.target.courseName.value,
       coursePrice: e.target.coursePrice.value,
-    });
+    };
+    setCourse([...courses, newCourse]);
+
     e.target.courseName.value = "";
     e.target.coursePrice.value = "";
   };
@@ -97,7 +101,10 @@ export default function Home() {
         />
       </div>
 
-      <Products products={products} />
+      <div className="flex flex-col gap-5">
+        <Products products={products} />
+        <Courses courses={courses} />
+      </div>
       <EntrepreneursCapital entrepreneurs={entrepreneurs} />
     </main>
   );
