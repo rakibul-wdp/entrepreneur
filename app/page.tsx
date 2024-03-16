@@ -28,6 +28,7 @@
 
 "use client";
 
+import { Form } from "@/components/Form";
 import { useState } from "react";
 
 export default function Home() {
@@ -62,35 +63,24 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="flex flex-col items-center justify-center gap-5">
-        <form
-          onSubmit={handleEntrepreneur}
-          className="flex flex-col items-center justify-center gap-2 bg-black"
-        >
-          <input
-            type="text"
-            name="entrepreneurName"
-            id="name"
-            className="bg-black text-white"
-          />
-          <input
-            type="number"
-            name="entrepreneurCapital"
-            id="capital"
-            className="bg-black text-white"
-          />
-          <input type="submit" value="Add" />
-        </form>
-        <form onSubmit={handleProduct}>
-          <input type="text" name="productName" id="product" />
-          <input type="number" name="productPrice" id="price" />
-          <input type="submit" value="Add" />
-        </form>
-        <form onSubmit={handleCourse}>
-          <input type="text" name="courseName" id="course" />
-          <input type="number" name="coursePrice" id="price" />
-          <input type="submit" value="Add" />
-        </form>
+        <Form
+          handleSubmit={handleEntrepreneur}
+          textTypeName="entrepreneurName"
+          numberTypeName="entrepreneurCapital"
+        />
+        <Form
+          handleSubmit={handleProduct}
+          textTypeName="productName"
+          numberTypeName="productPrice"
+        />
+        <Form
+          handleSubmit={handleCourse}
+          textTypeName="courseName"
+          numberTypeName="coursePrice"
+        />
       </div>
+
+      <div></div>
     </main>
   );
 }
