@@ -9,7 +9,7 @@ export const EntrepreneursCapital = ({ entrepreneurs }: any) => {
         Company Capital: {totalCapital} | {totalCapital > 0 ? "100%" : "0%"}
       </h2>
       <h3 className="text-lg font-semibold mb-1 text-center">
-        Entrepreneur Details
+        Entrepreneurs Details
       </h3>
       <table className="table-auto">
         <thead>

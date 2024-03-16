@@ -30,30 +30,36 @@
 
 import { EntrepreneursCapital } from "@/components/EntrepreneursCapital";
 import { Form } from "@/components/Form";
+import { Products } from "@/components/Products";
 import { useState } from "react";
 
 export default function Home() {
   const [entrepreneurs, setEntrepreneur] = useState<any>([]);
-  const [product, setProduct] = useState({});
+  const [products, setProduct] = useState<any>([]);
   const [course, setCourse] = useState({});
 
   const handleEntrepreneur = (e: any) => {
     e.preventDefault();
+
     const newEntrepreneur = {
       entrepreneurName: e.target.entrepreneurName.value,
       entrepreneurCapital: e.target.entrepreneurCapital.value,
     };
     setEntrepreneur([...entrepreneurs, newEntrepreneur]);
+
     e.target.entrepreneurName.value = "";
     e.target.entrepreneurCapital.value = "";
   };
 
   const handleProduct = (e: any) => {
     e.preventDefault();
-    setProduct({
+
+    const newProduct = {
       productName: e.target.productName.value,
       productPrice: e.target.productPrice.value,
-    });
+    };
+    setProduct([...products, newProduct]);
+
     e.target.productName.value = "";
     e.target.productPrice.value = "";
   };
@@ -75,19 +81,23 @@ export default function Home() {
           handleSubmit={handleEntrepreneur}
           textTypeName="entrepreneurName"
           numberTypeName="entrepreneurCapital"
+          buttonText="Add Entrepreneur"
         />
         <Form
           handleSubmit={handleProduct}
           textTypeName="productName"
           numberTypeName="productPrice"
+          buttonText="Add Product"
         />
         <Form
           handleSubmit={handleCourse}
           textTypeName="courseName"
           numberTypeName="coursePrice"
+          buttonText="Add Course"
         />
       </div>
 
+      <Products products={products} />
       <EntrepreneursCapital entrepreneurs={entrepreneurs} />
     </main>
   );

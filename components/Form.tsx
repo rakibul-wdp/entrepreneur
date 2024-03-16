@@ -1,6 +1,11 @@
 import React from "react";
 
-export const Form = ({ handleSubmit, textTypeName, numberTypeName }: any) => {
+export const Form = ({
+  handleSubmit,
+  textTypeName,
+  numberTypeName,
+  buttonText,
+}: any) => {
   return (
     <div>
       <form
@@ -19,7 +24,7 @@ export const Form = ({ handleSubmit, textTypeName, numberTypeName }: any) => {
         />
         <input
           type="submit"
-          value="Add"
+          value={buttonText}
           className="cursor-pointer bg-green-500 px-2"
         />
       </form>
