@@ -1,7 +1,11 @@
+import { calculatePrice } from "@/utils/calculateprice";
+
 export const EntrepreneursCapital = ({ entrepreneurs }: any) => {
-  const totalCapital = entrepreneurs.reduce((total: any, entrepreneur: any) => {
-    return total + Number(entrepreneur.entrepreneurCapital);
-  }, 0);
+  // const totalCapital = entrepreneurs.reduce((total: any, entrepreneur: any) => {
+  //   return total + Number(entrepreneur.entrepreneurCapital);
+  // }, 0);
+
+  const totalCapital: any = calculatePrice(entrepreneurs);
 
   return (
     <div className="border p-3">

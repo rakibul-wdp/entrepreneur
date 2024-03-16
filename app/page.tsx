@@ -32,6 +32,7 @@ import { Courses } from "@/components/Courses";
 import { EntrepreneursCapital } from "@/components/EntrepreneursCapital";
 import { Form } from "@/components/Form";
 import { Products } from "@/components/Products";
+import { calculatePrice } from "@/utils/calculateprice";
 import { useState } from "react";
 
 export default function Home() {
@@ -78,6 +79,9 @@ export default function Home() {
     e.target.coursePrice.value = "";
   };
 
+  const allProductPrice = calculatePrice(products);
+  const allCoursePrice = calculatePrice(courses);
+
   return (
     <main className="flex justify-between p-10">
       <div className="flex flex-col items-center justify-center gap-5">
@@ -102,6 +106,7 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col gap-5">
+        <h2>Total Cost: {allProductPrice + allCoursePrice}</h2>
         <Products products={products} />
         <Courses courses={courses} />
       </div>
