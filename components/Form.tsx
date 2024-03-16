@@ -5,7 +5,7 @@ export const Form = ({ handleSubmit, textTypeName, numberTypeName }: any) => {
     <div>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col items-center justify-center gap-2 bg-white text-black p-3"
+        className="flex flex-col items-center justify-center gap-2 bg-gray-100 text-black p-3"
       >
         <input
           type="text"

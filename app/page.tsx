@@ -28,20 +28,24 @@
 
 "use client";
 
+import { EntrepreneursCapital } from "@/components/EntrepreneursCapital";
 import { Form } from "@/components/Form";
 import { useState } from "react";
 
 export default function Home() {
-  const [entrepreneur, setEntrepreneur] = useState({});
+  const [entrepreneurs, setEntrepreneur] = useState<any>([]);
   const [product, setProduct] = useState({});
   const [course, setCourse] = useState({});
 
   const handleEntrepreneur = (e: any) => {
     e.preventDefault();
-    setEntrepreneur({
+    const newEntrepreneur = {
       entrepreneurName: e.target.entrepreneurName.value,
       entrepreneurCapital: e.target.entrepreneurCapital.value,
-    });
+    };
+    setEntrepreneur([...entrepreneurs, newEntrepreneur]);
+    e.target.entrepreneurName.value = "";
+    e.target.entrepreneurCapital.value = "";
   };
 
   const handleProduct = (e: any) => {
@@ -50,6 +54,8 @@ export default function Home() {
       productName: e.target.productName.value,
       productPrice: e.target.productPrice.value,
     });
+    e.target.productName.value = "";
+    e.target.productPrice.value = "";
   };
 
   const handleCourse = (e: any) => {
@@ -58,10 +64,12 @@ export default function Home() {
       courseName: e.target.courseName.value,
       coursePrice: e.target.coursePrice.value,
     });
+    e.target.courseName.value = "";
+    e.target.coursePrice.value = "";
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex justify-between p-10">
       <div className="flex flex-col items-center justify-center gap-5">
         <Form
           handleSubmit={handleEntrepreneur}
@@ -80,7 +88,7 @@ export default function Home() {
         />
       </div>
 
-      <div></div>
+      <EntrepreneursCapital entrepreneurs={entrepreneurs} />
     </main>
   );
 }
