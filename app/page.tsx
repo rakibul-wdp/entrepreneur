@@ -28,13 +28,36 @@
 
 "use client";
 
+import { useState } from "react";
+
 export default function Home() {
+  const [entrepreneur, setEntrepreneur] = useState({});
+  const [product, setProduct] = useState({});
+  const [course, setCourse] = useState({});
+
   const handleEntrepreneur = (e: any) => {
     e.preventDefault();
-    console.log(e.target.value);
+    setEntrepreneur({
+      entrepreneurName: e.target.entrepreneurName.value,
+      entrepreneurCapital: e.target.entrepreneurCapital.value,
+    });
   };
-  const handleProduct = () => {};
-  const handleCourse = () => {};
+
+  const handleProduct = (e: any) => {
+    e.preventDefault();
+    setProduct({
+      productName: e.target.productName.value,
+      productPrice: e.target.productPrice.value,
+    });
+  };
+
+  const handleCourse = (e: any) => {
+    e.preventDefault();
+    setCourse({
+      courseName: e.target.courseName.value,
+      coursePrice: e.target.coursePrice.value,
+    });
+  };
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -45,26 +68,26 @@ export default function Home() {
         >
           <input
             type="text"
-            name="entrepreneur's name"
+            name="entrepreneurName"
             id="name"
             className="bg-black text-white"
           />
           <input
             type="number"
-            name="entrepreneur's cost"
-            id="cost"
+            name="entrepreneurCapital"
+            id="capital"
             className="bg-black text-white"
           />
           <input type="submit" value="Add" />
         </form>
-        <form>
-          <input type="text" name="product" id="product" />
-          <input type="number" name="price" id="price" />
+        <form onSubmit={handleProduct}>
+          <input type="text" name="productName" id="product" />
+          <input type="number" name="productPrice" id="price" />
           <input type="submit" value="Add" />
         </form>
-        <form>
-          <input type="text" name="course" id="course" />
-          <input type="number" name="price" id="price" />
+        <form onSubmit={handleCourse}>
+          <input type="text" name="courseName" id="course" />
+          <input type="number" name="coursePrice" id="price" />
           <input type="submit" value="Add" />
         </form>
       </div>
