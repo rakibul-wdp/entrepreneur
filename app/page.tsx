@@ -79,8 +79,17 @@ export default function Home() {
     e.target.coursePrice.value = "";
   };
 
-  const allProductPrice = calculatePrice(products);
-  const allCoursePrice = calculatePrice(courses);
+  const allProductPrice = calculatePrice(products, (product: any) => {
+    return Number(product.productPrice);
+  });
+
+  const allCoursePrice = calculatePrice(courses, (course: any) => {
+    return Number(course.coursePrice);
+  });
+
+  const companyCapital = calculatePrice(entrepreneurs, (entrepreneur: any) => {
+    return Number(entrepreneur.entrepreneurCapital);
+  });
 
   return (
     <main className="flex justify-between p-10">
@@ -106,7 +115,18 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col gap-5">
-        <h2>Total Cost: {allProductPrice + allCoursePrice}</h2>
+        <div className="text-center">
+          <h2 className="text-xl font-semibold">
+            Total Cost: {allProductPrice + allCoursePrice}
+          </h2>
+          <h2 className="text-xl font-semibold">
+            Company Cost:{" "}
+            {Math.floor(
+              ((allProductPrice + allCoursePrice) / companyCapital) * 100
+            )}
+            %
+          </h2>
+        </div>
         <Products products={products} />
         <Courses courses={courses} />
       </div>

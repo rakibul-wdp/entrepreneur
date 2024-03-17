@@ -5,7 +5,11 @@ export const EntrepreneursCapital = ({ entrepreneurs }: any) => {
   //   return total + Number(entrepreneur.entrepreneurCapital);
   // }, 0);
 
-  const totalCapital: any = calculatePrice(entrepreneurs);
+  // const totalCapital: any = calculatePrice(entrepreneurs);
+
+  const totalCapital = calculatePrice(entrepreneurs, (entrepreneur: any) => {
+    return Number(entrepreneur.entrepreneurCapital);
+  });
 
   return (
     <div className="border p-3">
