@@ -21,7 +21,7 @@
  * calculate total cost by summation of products and accessories/course price
  * show all entrepreneur's cost or company cost in %
  * after sell all products calculate cost and profile and show it
- * share profit based on entrepreneur's capital and how it
+ * share profit based on entrepreneur's capital and show it
  * 
  * @returns something good
  */
@@ -32,7 +32,7 @@ import { Courses } from "@/components/Courses";
 import { EntrepreneursCapital } from "@/components/EntrepreneursCapital";
 import { Form } from "@/components/Form";
 import { Products } from "@/components/Products";
-import { calculatePrice } from "@/utils/calculateprice";
+import { TotalAndCompanyCost } from "@/components/TotalAndCompanyCost";
 import { useState } from "react";
 
 export default function Home() {
@@ -79,18 +79,6 @@ export default function Home() {
     e.target.coursePrice.value = "";
   };
 
-  const allProductPrice = calculatePrice(products, (product: any) => {
-    return Number(product.productPrice);
-  });
-
-  const allCoursePrice = calculatePrice(courses, (course: any) => {
-    return Number(course.coursePrice);
-  });
-
-  const companyCapital = calculatePrice(entrepreneurs, (entrepreneur: any) => {
-    return Number(entrepreneur.entrepreneurCapital);
-  });
-
   return (
     <main className="flex justify-between p-10">
       <div className="flex flex-col items-center justify-center gap-5">
@@ -115,18 +103,11 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col gap-5">
-        <div className="text-center">
-          <h2 className="text-xl font-semibold">
-            Total Cost: {allProductPrice + allCoursePrice}
-          </h2>
-          <h2 className="text-xl font-semibold">
-            Company Cost:{" "}
-            {Math.floor(
-              ((allProductPrice + allCoursePrice) / companyCapital) * 100
-            )}
-            %
-          </h2>
-        </div>
+        <TotalAndCompanyCost
+          products={products}
+          courses={courses}
+          entrepreneurs={entrepreneurs}
+        />
         <Products products={products} />
         <Courses courses={courses} />
       </div>
