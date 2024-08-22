@@ -1,3 +1,5 @@
+import AuthSessionProvider from "@/components/auth/auth-session-provider";
+import AuthProvider from "@/context/auth-provider";
 import StyledComponentsRegistry from "@/lib/antd-registry";
 import theme from "@/lib/theme-config";
 import { ConfigProvider } from "antd";
@@ -28,13 +30,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ConfigProvider theme={theme}>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-        </body>
-      </ConfigProvider>
+      <AuthSessionProvider>
+        <ConfigProvider theme={theme}>
+          <body
+            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          >
+            <StyledComponentsRegistry>
+              <AuthProvider>{children}</AuthProvider>
+            </StyledComponentsRegistry>
+          </body>
+        </ConfigProvider>
+      </AuthSessionProvider>
     </html>
   );
 }
