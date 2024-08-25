@@ -1,4 +1,6 @@
 import AuthSessionProvider from "@/components/auth/auth-session-provider";
+import Footer from "@/components/shared/footer";
+import Navbar from "@/components/shared/navbar";
 import AuthProvider from "@/context/auth-provider";
 import StyledComponentsRegistry from "@/lib/antd-registry";
 import theme from "@/lib/theme-config";
@@ -36,7 +38,11 @@ export default function RootLayout({
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
           >
             <StyledComponentsRegistry>
-              <AuthProvider>{children}</AuthProvider>
+              <AuthProvider>
+                <Navbar />
+                {children}
+                <Footer />
+              </AuthProvider>
             </StyledComponentsRegistry>
           </body>
         </ConfigProvider>
