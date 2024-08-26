@@ -1,5 +1,4 @@
 import AuthSessionProvider from "@/components/auth/auth-session-provider";
-import Footer from "@/components/shared/footer";
 import Navbar from "@/components/shared/navbar";
 import AuthProvider from "@/context/auth-provider";
 import StyledComponentsRegistry from "@/lib/antd-registry";
@@ -41,7 +40,6 @@ export default function RootLayout({
               <AuthProvider>
                 <Navbar />
                 {children}
-                <Footer />
               </AuthProvider>
             </StyledComponentsRegistry>
           </body>

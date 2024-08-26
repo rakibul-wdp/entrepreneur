@@ -31,14 +31,7 @@ const Navbar = () => {
   return (
     <nav className="border-b py-2 sticky top-0 bg-white z-50">
       <Container className="flex justify-between items-center">
-        <Link href="/">
-          <Image
-            src="/images/logo-name.svg"
-            alt="logo"
-            width={200}
-            height={50}
-          />
-        </Link>
+        <Link href="/">Injury Tracking System</Link>
 
         <div className="flex gap-x-4 items-center">
           <Button
