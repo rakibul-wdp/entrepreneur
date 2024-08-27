@@ -4,7 +4,6 @@
 import { Button, Divider, Form, Input, message } from "antd";
 import axios from "axios";
 import { signIn } from "next-auth/react";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -61,18 +60,13 @@ const AuthForm = ({ type = "sign-in" }: TAuthFormProps) => {
   return (
     <>
       {contextHolder}
-      <div className="bg-white rounded-md p-6 w-full mx-4 md:w-fit md:min-w-[400px]">
+      <div className="bg-white border rounded-md p-6 w-full mx-4 md:w-fit md:min-w-[400px]">
         <div className="flex justify-center items-center py-6 flex-col">
-          <h1 className="text-xl font-semibold">
+          <h1 className="text-xl text-black font-semibold">
             {type === "sign-in" ? "Sign in" : "Sign up"}
           </h1>
-          <Link href="/">
-            <Image
-              src="/images/logo-name.svg"
-              alt="logo"
-              width={200}
-              height={50}
-            />
+          <Link href="/" className="text-black text-lg font-bold mt-2">
+            ITS
           </Link>
         </div>
 

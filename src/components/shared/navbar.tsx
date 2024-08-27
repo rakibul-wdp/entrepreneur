@@ -2,7 +2,6 @@
 
 import type { MenuProps } from "antd";
 import { Button, Dropdown } from "antd";
-import { Clipboard, LogIn } from "lucide-react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -31,13 +30,14 @@ const Navbar = () => {
   return (
     <nav className="border-b py-2 sticky top-0 bg-white z-50">
       <Container className="flex justify-between items-center">
-        <Link href="/">Injury Tracking System</Link>
+        <Link href="/" className="text-black text-xl font-bold">
+          ITS
+        </Link>
 
         <div className="flex gap-x-4 items-center">
           <Button
             type="primary"
             size="large"
-            icon={<Clipboard className="w-4 h-4 text-white" />}
             onClick={() => router.push("/view-reports")}
           >
             {isDownMd ? "" : "Reports"}
@@ -59,11 +59,7 @@ const Navbar = () => {
               </Dropdown>
             </div>
           ) : (
-            <Button
-              size="large"
-              icon={<LogIn className="w-4 h-4 text-[#00aeab]" />}
-              onClick={() => signIn()}
-            >
+            <Button size="large" onClick={() => signIn()}>
               {isDownMd ? "" : "Log in"}
             </Button>
           )}
