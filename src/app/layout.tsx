@@ -1,3 +1,6 @@
+import StyledComponentsRegistry from "@/lib/antd-registry";
+import theme from "@/lib/theme-config";
+import { ConfigProvider } from "antd";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -25,11 +28,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <ConfigProvider theme={theme}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+        >
+          <StyledComponentsRegistry>
+            {children}
+            </StyledComponentsRegistry>
+        </body>
+        </ConfigProvider>
     </html>
   );
 }
