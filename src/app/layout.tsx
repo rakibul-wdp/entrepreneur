@@ -29,14 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ConfigProvider theme={theme}>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <StyledComponentsRegistry>
-            {children}
-            </StyledComponentsRegistry>
+          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
         </body>
-        </ConfigProvider>
+      </ConfigProvider>
     </html>
   );
 }
