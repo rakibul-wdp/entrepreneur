@@ -17,7 +17,7 @@ import useAuth from "@/context/use-auth-context";
 import { Report } from "@prisma/client";
 import { MessageInstance } from "antd/es/message/interface";
 
-type DataType = Report & { key: number };
+type DataType = Report & { key: string };
 type DataIndex = keyof DataType;
 
 export default function useTable({
